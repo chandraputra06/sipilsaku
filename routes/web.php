@@ -13,3 +13,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.auth.register');
 })->name('register');
+
+Route::get('/courses', function () {
+    return view('pages.course.index');
+})->name('course');
