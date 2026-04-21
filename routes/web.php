@@ -50,3 +50,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('ebooks', AdminEbookController::class);
     Route::resource('users', UserController::class)->only(['index', 'show', 'edit', 'update', 'destroy']);
 });
+
+Route::get('/faq', function () {
+    return view('pages.faq.index');
+})->name('faq');
