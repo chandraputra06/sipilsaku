@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Sipilsaku' }}</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/logo/sipilsaku-logo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/logo/sipilsaku-logo.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white font-body text-[#4D371F]">
