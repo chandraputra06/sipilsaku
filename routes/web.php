@@ -17,3 +17,7 @@ Route::get('/register', function () {
 Route::get('/courses', function () {
     return view('pages.course.index');
 })->name('course');
+
+Route::get('/faq', function () {
+    return view('pages.faq.index');
+})->name('faq');
