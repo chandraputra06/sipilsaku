@@ -1,27 +1,52 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Http\Controllers;
 
-return new class extends Migration
+use App\Models\Course;
+use Illuminate\Http\Request;
+
+class CourseController extends Controller
 {
-    public function up(): void
+    public function index(Request $request)
     {
-        Schema::create('courses', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('thumbnail')->nullable();
-            $table->text('description')->nullable();
-            $table->decimal('price', 12, 2)->default(0);
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
-        });
+        $query = Course::query()->where('is_active', true);
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('sort')) {
+            if ($request->sort === 'nama') {
+                $query->orderBy('title', 'asc');
+            } elseif ($request->sort === 'terbaru') {
+                $query->latest();
+            } elseif ($request->sort === 'termahal') {
+                $query->orderBy('price', 'desc');
+            } elseif ($request->sort === 'termurah') {
+                $query->orderBy('price', 'asc');
+            } else {
+                $query->latest();
+            }
+        } else {
+            $query->latest();
+        }
+
+        $courses = $query->paginate(8)->withQueryString();
+
+        return view('pages.course.index', compact('courses'));
     }
 
-    public function down(): void
+    public function show(string $slug)
     {
-        Schema::dropIfExists('courses');
+        $course = Course::where('slug', $slug)
+            ->where('is_active', true)
+            ->firstOrFail();
+
+        return view('pages.course.show', compact('course'));
     }
-};
+}

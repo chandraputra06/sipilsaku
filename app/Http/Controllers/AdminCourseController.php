@@ -44,7 +44,9 @@ class AdminCourseController extends Controller
 
         Course::create($validated);
 
-        return redirect()->route('admin.courses.index')->with('success', 'Course berhasil ditambahkan.');
+        return redirect()
+            ->route('admin.courses.index')
+            ->with('success', 'Course berhasil ditambahkan.');
     }
 
     public function edit(Course $course)
@@ -75,7 +77,9 @@ class AdminCourseController extends Controller
 
         $course->update($validated);
 
-        return redirect()->route('admin.courses.index')->with('success', 'Course berhasil diperbarui.');
+        return redirect()
+            ->route('admin.courses.index')
+            ->with('success', 'Course berhasil diperbarui.');
     }
 
     public function destroy(Course $course)
@@ -86,6 +90,8 @@ class AdminCourseController extends Controller
 
         $course->delete();
 
-        return redirect()->route('admin.courses.index')->with('success', 'Course berhasil dihapus.');
+        return redirect()
+            ->route('admin.courses.index')
+            ->with('success', 'Course berhasil dihapus.');
     }
 }

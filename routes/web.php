@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminEbookController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EbookController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -35,6 +36,11 @@ Route::middleware('auth')->group(function () {
 Route::prefix('ebooks')->name('ebooks.')->group(function () {
     Route::get('/', [EbookController::class, 'index'])->name('index');
     Route::get('/{slug}', [EbookController::class, 'show'])->name('show');
+});
+
+Route::prefix('courses')->name('courses.')->group(function () {
+    Route::get('/', [CourseController::class, 'index'])->name('index');
+    Route::get('/{slug}', [CourseController::class, 'show'])->name('show');
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
