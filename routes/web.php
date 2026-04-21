@@ -54,3 +54,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 Route::get('/faq', function () {
     return view('pages.faq.index');
 })->name('faq');
+
+Route::get('/about', function () {
+    return view('pages.about.index');
+})->name('about');
