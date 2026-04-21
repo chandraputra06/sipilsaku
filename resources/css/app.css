@@ -1,17 +1,10 @@
-@import 'tailwindcss';
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
-
-@layer base {
-    button,
-    [role="button"],
-    a {
-        cursor: pointer;
-    }
-}
 
 @font-face {
     font-family: 'ITC Garamond Std';
@@ -55,88 +48,90 @@
     font-style: normal;
 }
 
-@layer base {
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #FCF5EE;
-        color: #4D371F;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'ITC Garamond Std', serif;
-    }
+html {
+    scroll-behavior: smooth;
 }
 
-@layer utilities {
-    .bg-primary {
-        background-color: #DD9E59;
-    }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FCF5EE;
+    color: #4D371F;
+}
 
-    .bg-cream {
-        background-color: #FCF5EE;
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'ITC Garamond Std', serif;
+}
 
-    .bg-brown {
-        background-color: #4D371F;
-    }
+button,
+[role="button"],
+a {
+    cursor: pointer;
+}
 
-    .text-primary {
-        color: #DD9E59;
-    }
+.bg-primary {
+    background-color: #DD9E59;
+}
 
-    .text-cream {
-        color: #FCF5EE;
-    }
+.bg-cream {
+    background-color: #FCF5EE;
+}
 
-    .text-brown {
-        color: #4D371F;
-    }
+.bg-brown {
+    background-color: #4D371F;
+}
 
-    .border-primary {
-        border-color: #DD9E59;
-    }
+.text-primary {
+    color: #DD9E59;
+}
 
-    .border-brown {
-        border-color: #4D371F;
-    }
+.text-cream {
+    color: #FCF5EE;
+}
 
-    .font-heading {
-        font-family: 'ITC Garamond Std', serif;
-    }
+.text-brown {
+    color: #4D371F;
+}
 
-    .font-body {
-        font-family: 'Poppins', sans-serif;
-    }
+.border-primary {
+    border-color: #DD9E59;
+}
 
-    .auth-input {
-        @apply w-full rounded-md border border-[#8B7A6B] bg-transparent px-3 py-2 text-sm text-[#4D371F] outline-none transition;
-    }
+.border-brown {
+    border-color: #4D371F;
+}
 
-    .auth-input:focus {
-        @apply border-[#DD9E59] ring-2 ring-[#DD9E59]/20;
-    }
+.font-heading {
+    font-family: 'ITC Garamond Std', serif;
+}
 
-    .btn-primary {
-        @apply inline-flex items-center justify-center rounded-lg bg-[#DD9E59] px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90;
-    }
+.font-body {
+    font-family: 'Poppins', sans-serif;
+}
 
-    .btn-outline-light {
-        @apply inline-flex items-center justify-center rounded-lg border border-white/70 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-white/10;
-    }
+.auth-input {
+    @apply w-full rounded-md border border-[#8B7A6B] bg-transparent px-3 py-2 text-sm text-[#4D371F] outline-none transition;
+}
 
-    .btn-tab-active {
-        @apply rounded-full bg-white px-6 py-2 text-sm font-medium text-[#8B5E2E] shadow-sm;
-    }
+.auth-input:focus {
+    @apply border-[#DD9E59] ring-2 ring-[#DD9E59]/20;
+}
 
-    .btn-tab {
-        @apply rounded-full px-6 py-2 text-sm font-medium text-white/95;
-    }
+.btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-[#DD9E59] px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90;
+}
 
-    .auth-badge {
-        @apply inline-flex items-center rounded-md bg-[#D79A58] px-3 py-1.5 text-xs text-white;
-    }
+.btn-outline-light {
+    @apply inline-flex items-center justify-center rounded-lg border border-white/70 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-white/10;
+}
+
+.btn-tab-active {
+    @apply rounded-full bg-white px-6 py-2 text-sm font-medium text-[#8B5E2E] shadow-sm;
+}
+
+.btn-tab {
+    @apply rounded-full px-6 py-2 text-sm font-medium text-white/95;
+}
+
+.auth-badge {
+    @apply inline-flex items-center rounded-md bg-[#D79A58] px-3 py-1.5 text-xs text-white;
 }
