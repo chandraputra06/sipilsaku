@@ -17,3 +17,7 @@ Route::get('/register', function () {
 Route::get('/courses', function () {
     return view('pages.course.index');
 })->name('course');
+
+Route::get('/about', function () {
+    return view('pages.about.index');
+})->name('about');
