@@ -8,12 +8,14 @@
     <link rel="shortcut icon" href="{{ asset('assets/logo/sipilsaku-logo.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-white font-body">
-    <main class="min-h-screen bg-white flex items-center justify-center px-4 py-6 md:px-6 md:py-8">
-        <div class="w-full max-w-[1180px] rounded-sm bg-[#F4EEE8] p-4 md:p-6">
+<body class="bg-white font-body text-[#4D371F]">
+    <div class="min-h-screen bg-white">
+        @include('components.navbar')
+
+        <main>
             @yield('content')
-        </div>
-    </main>
+        </main>
+    </div>
 
     @stack('scripts')
 </body>
