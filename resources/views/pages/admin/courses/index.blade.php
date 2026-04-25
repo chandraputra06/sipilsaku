@@ -20,13 +20,9 @@
         @endif
 
         <div class="rounded-[22px] bg-white p-6 shadow-sm">
-            <form method="GET" action="{{ route('admin.courses.index') }}" class="mb-6">
-                <input
-                    type="text"
-                    name="search"
-                    value="{{ request('search') }}"
-                    placeholder="Cari judul course..."
-                    class="auth-input max-w-md">
+            <form id="adminCourseSearchForm" method="GET" action="{{ route('admin.courses.index') }}" class="mb-6">
+                <input id="adminCourseSearchInput" type="text" name="search" value="{{ request('search') }}"
+                    placeholder="Cari judul course..." class="auth-input max-w-md">
             </form>
 
             <div class="overflow-x-auto">
@@ -49,10 +45,8 @@
                             <tr class="border-b border-[#F1E8DE] align-top text-sm text-[#4D371F]">
                                 {{-- Thumbnail --}}
                                 <td class="px-3 py-4">
-                                    <img
-                                        src="{{ $course->thumbnail ? asset('storage/' . $course->thumbnail) : asset('assets/image/course-placeholder.png') }}"
-                                        alt="{{ $course->title }}"
-                                        class="h-16 w-24 rounded-lg object-cover">
+                                    <img src="{{ $course->thumbnail ? asset('storage/' . $course->thumbnail) : asset('assets/image/course-placeholder.png') }}"
+                                        alt="{{ $course->title }}" class="h-16 w-24 rounded-lg object-cover">
                                 </td>
 
                                 {{-- Judul --}}
@@ -87,7 +81,8 @@
 
                                 {{-- Sesi --}}
                                 <td class="px-3 py-4">
-                                    <span class="inline-flex rounded-xl bg-[#FCF5EE] px-4 py-2 text-sm font-medium text-[#4D371F]">
+                                    <span
+                                        class="inline-flex rounded-xl bg-[#FCF5EE] px-4 py-2 text-sm font-medium text-[#4D371F]">
                                         {{ $course->session_count ?? 0 }}X Sesi
                                     </span>
                                 </td>
@@ -102,11 +97,13 @@
                                 {{-- Status --}}
                                 <td class="px-3 py-4">
                                     @if ($course->is_active)
-                                        <span class="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+                                        <span
+                                            class="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
                                             Aktif
                                         </span>
                                     @else
-                                        <span class="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700">
+                                        <span
+                                            class="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700">
                                             Nonaktif
                                         </span>
                                     @endif
@@ -114,8 +111,7 @@
 
                                 {{-- Kelola Video --}}
                                 <td class="px-3 py-4">
-                                    <a
-                                        href="{{ route('admin.courses.videos.index', $course) }}"
+                                    <a href="{{ route('admin.courses.videos.index', $course) }}"
                                         class="inline-flex items-center gap-2 rounded-full bg-[#D89A53] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c9863d]">
                                         Kelola
                                         <span>&rarr;</span>
@@ -125,21 +121,17 @@
                                 {{-- Aksi --}}
                                 <td class="px-3 py-4">
                                     <div class="flex flex-col gap-2">
-                                        <a
-                                            href="{{ route('admin.courses.edit', $course) }}"
+                                        <a href="{{ route('admin.courses.edit', $course) }}"
                                             class="text-sm font-medium text-[#D89A53] hover:underline">
                                             Edit
                                         </a>
 
-                                        <form
-                                            method="POST"
-                                            action="{{ route('admin.courses.destroy', $course) }}"
+                                        <form method="POST" action="{{ route('admin.courses.destroy', $course) }}"
                                             onsubmit="return confirm('Yakin ingin menghapus course ini?')">
                                             @csrf
                                             @method('DELETE')
 
-                                            <button
-                                                type="submit"
+                                            <button type="submit"
                                                 class="text-left text-sm font-medium text-red-500 hover:underline">
                                                 Hapus
                                             </button>
@@ -163,4 +155,25 @@
             </div>
         </div>
     </section>
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('adminCourseSearchForm');
+                const input = document.getElementById('adminCourseSearchInput');
+
+                if (!form || !input) return;
+
+                let debounceTimer = null;
+
+                input.addEventListener('input', function() {
+                    clearTimeout(debounceTimer);
+
+                    debounceTimer = setTimeout(function() {
+                        form.submit();
+                    }, 400);
+                });
+            });
+        </script>
+    @endpush
 @endsection

@@ -249,11 +249,11 @@
 
             {{-- Carousel wrapper --}}
             <div data-animate="zoom-in" data-animate-duration="slow" data-animate-ease="smooth"
-                class="relative mx-auto mt-10 max-w-[980px] sm:mt-12">
+                class="relative mx-auto mt-10 max-w-[980px] px-3 sm:mt-12 sm:px-6 lg:px-10">
 
                 {{-- Prev button --}}
                 <button id="ebookPrev"
-                    class="absolute left-[-2px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-1/2 hover:bg-[#D4904A] hover:text-white sm:left-[-12px] lg:left-[-18px]">
+                    class="absolute left-[-14px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-1/2 hover:bg-[#D4904A] hover:text-white sm:left-[-22px] sm:h-11 sm:w-11 lg:left-[-36px] lg:h-12 lg:w-12">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
@@ -261,7 +261,7 @@
 
                 {{-- Next button --}}
                 <button id="ebookNext"
-                    class="absolute right-[-2px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-1/2 hover:bg-[#D4904A] hover:text-white sm:right-[-12px] lg:right-[-18px]">
+                    class="absolute right-[-14px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-1/2 hover:bg-[#D4904A] hover:text-white sm:right-[-22px] sm:h-11 sm:w-11 lg:right-[-36px] lg:h-12 lg:w-12">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
