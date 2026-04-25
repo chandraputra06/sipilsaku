@@ -12,24 +12,18 @@
             <div class="flex h-[360px] w-[240px] items-center justify-center overflow-hidden rounded-[18px] border border-[#E8DDD2] bg-[#FCF5EE]">
                 <img
                     id="coverPreview"
-                    src="{{ $isEdit && $ebook->cover ? asset('storage/' . $ebook->cover) : asset('assets/image/ebook-placeholder.png') }}"
+                    src="{{ $isEdit && $ebook->cover ? asset('storage/' . $ebook->cover) : asset('assets/image/book-baja.png') }}"
                     alt="Preview Cover"
                     class="h-full w-full object-cover"
                 >
             </div>
         </div>
-
-        <p class="mt-4 text-center text-sm text-[#8A7060]">
-            Upload cover e-book agar tampil di halaman user.
-        </p>
     </div>
 
     <div class="rounded-[22px] bg-white p-6 shadow-sm md:p-8">
         <div class="grid gap-5">
             <div>
-                <label for="title" class="mb-2 block text-sm font-medium text-[#4D371F]">
-                    Judul E-Book
-                </label>
+                <label for="title" class="mb-2 block text-sm font-medium text-[#4D371F]">Judul E-Book</label>
                 <input
                     id="title"
                     type="text"
@@ -44,9 +38,7 @@
             </div>
 
             <div>
-                <label for="author" class="mb-2 block text-sm font-medium text-[#4D371F]">
-                    Penulis
-                </label>
+                <label for="author" class="mb-2 block text-sm font-medium text-[#4D371F]">Penulis</label>
                 <input
                     id="author"
                     type="text"
@@ -60,9 +52,7 @@
             </div>
 
             <div>
-                <label for="cover" class="mb-2 block text-sm font-medium text-[#4D371F]">
-                    Cover E-Book
-                </label>
+                <label for="cover" class="mb-2 block text-sm font-medium text-[#4D371F]">Cover</label>
                 <input
                     id="cover"
                     type="file"
@@ -76,9 +66,7 @@
             </div>
 
             <div>
-                <label for="price" class="mb-2 block text-sm font-medium text-[#4D371F]">
-                    Harga
-                </label>
+                <label for="price" class="mb-2 block text-sm font-medium text-[#4D371F]">Harga</label>
                 <input
                     id="price"
                     type="number"
@@ -95,9 +83,7 @@
             </div>
 
             <div>
-                <label for="description" class="mb-2 block text-sm font-medium text-[#4D371F]">
-                    Deskripsi
-                </label>
+                <label for="description" class="mb-2 block text-sm font-medium text-[#4D371F]">Deskripsi</label>
                 <textarea
                     id="description"
                     name="description"
@@ -118,7 +104,7 @@
                         {{ old('is_popular', $ebook->is_popular ?? false) ? 'checked' : '' }}
                         class="rounded border-[#CBB8A5] text-[#DD9E59] shadow-sm focus:ring-[#DD9E59]"
                     >
-                    <span>Tandai sebagai populer</span>
+                    <span>Tandai populer</span>
                 </label>
 
                 <label class="flex items-center gap-3 rounded-xl bg-[#FCF5EE] px-4 py-3 text-sm text-[#4D371F]">
@@ -160,11 +146,9 @@
             if (!file) return;
 
             const reader = new FileReader();
-
             reader.onload = function (e) {
                 preview.src = e.target.result;
             };
-
             reader.readAsDataURL(file);
         });
     });

@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'FAQ')
+
 @section('content')
     @php
-
         $faqs = [
             [
                 'question' => 'Bagaimana cara mendaftar kursus di Sipilsaku?',
@@ -44,7 +45,11 @@
 
     {{-- HERO --}}
     <section class="bg-[#FAF6F2] py-16 lg:py-20">
-        <div class="mx-auto max-w-[1240px] px-6 text-center lg:px-8">
+        <div
+            data-animate="fade-up"
+            data-animate-duration="slow"
+            data-animate-ease="smooth"
+            class="mx-auto max-w-[1240px] px-6 text-center lg:px-8">
             <h1 class="font-heading text-[40px] font-bold text-[#2B2118] md:text-[56px]">
                 Frequently Asked Questions
             </h1>
@@ -59,10 +64,14 @@
     {{-- FAQ LIST --}}
     <section class="bg-white py-16 lg:py-20">
         <div class="mx-auto max-w-[900px] px-6 lg:px-8">
-
             <div class="space-y-4">
                 @foreach ($faqs as $index => $faq)
-                    <div class="faq-item overflow-hidden rounded-[18px] border border-[#E7D7C7] bg-white">
+                    <div
+                        data-animate="fade-up"
+                        data-animate-delay="{{ $index * 180 }}ms"
+                        data-animate-duration="slow"
+                        data-animate-ease="smooth"
+                        class="faq-item overflow-hidden rounded-[18px] border border-[#E7D7C7] bg-white">
                         <button type="button"
                             class="faq-question flex w-full items-center justify-between px-6 py-5 text-left">
                             <span class="pr-4 text-[16px] font-semibold text-[#2B2118]">
@@ -83,13 +92,17 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
     </section>
 
     {{-- CTA --}}
     <section class="relative overflow-hidden bg-[#D4904A] py-16 lg:py-20 lg:pb-30">
-        <div class="mx-auto max-w-[700px] px-6 text-center lg:px-8">
+        <div
+            data-animate="fade-up"
+            data-animate-delay="220ms"
+            data-animate-duration="slow"
+            data-animate-ease="smooth"
+            class="mx-auto max-w-[700px] px-6 text-center lg:px-8">
 
             <h2 class="font-heading text-[32px] font-bold text-white md:text-[40px]">
                 Masih ada pertanyaan?
@@ -100,7 +113,7 @@
                 kapan saja melalui layanan pelanggan kami.
             </p>
 
-            <a href="#"
+            <a href="https://wa.me/6281916113700"
                 class="mt-8 inline-flex items-center gap-2 rounded-[12px] bg-white px-8 py-4 text-sm font-semibold text-[#D4904A] shadow-lg shadow-black/10 transition hover:bg-[#FAF3EC]">
                 Hubungi Admin
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">

@@ -1,5 +1,7 @@
 @extends('layouts.app-no-footer')
 
+@section('title', 'Profil')
+
 @section('content')
     <section class="bg-[#FCF5EE] py-12">
         <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
@@ -22,16 +24,17 @@
                 <div class="rounded-[22px] bg-white p-6 shadow-sm">
                     <div class="flex flex-col items-center text-center">
                         <div id="profilePreviewWrapper"
-                            class="flex h-[96px] w-[96px] items-center justify-center overflow-hidden rounded-full border-2 border-[#D89A53] bg-[#FCF5EE]">
-                            @if ($user->profile_photo)
-                                <img id="profilePreviewImage" src="{{ asset('storage/' . $user->profile_photo) }}"
-                                    alt="{{ $user->name }}" class="h-full w-full object-cover">
-                                <i id="profilePreviewIcon" class="fa-regular fa-user hidden text-[34px] text-[#D89A53]"></i>
-                            @else
-                                <img id="profilePreviewImage" src="" alt="{{ $user->name }}"
-                                    class="hidden h-full w-full object-cover">
-                                <i id="profilePreviewIcon" class="fa-regular fa-user text-[34px] text-[#D89A53]"></i>
-                            @endif
+                            class="relative flex h-[96px] w-[96px] items-center justify-center overflow-hidden rounded-full border-2 border-[#D89A53] bg-[#FCF5EE]">
+
+                            <img id="profilePreviewImage"
+                                src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : '' }}"
+                                alt="{{ $user->name }}"
+                                class="{{ $user->profile_photo ? 'block' : 'hidden' }} h-full w-full object-cover">
+
+                            <div id="profilePreviewFallback"
+                                class="{{ $user->profile_photo ? 'hidden' : 'flex' }} absolute inset-0 items-center justify-center bg-[#FCF5EE]">
+                                <i class="fa-regular fa-user text-[34px] text-[#D89A53]"></i>
+                            </div>
                         </div>
 
                         <h2 class="mt-4 font-heading text-[28px] text-[#4D371F]">
@@ -242,9 +245,9 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const fileInput = document.getElementById('profile_photo');
                 const previewImage = document.getElementById('profilePreviewImage');
-                const previewIcon = document.getElementById('profilePreviewIcon');
+                const previewFallback = document.getElementById('profilePreviewFallback');
 
-                if (fileInput && previewImage && previewIcon) {
+                if (fileInput && previewImage && previewFallback) {
                     fileInput.addEventListener('change', function(event) {
                         const file = event.target.files[0];
                         if (!file) return;
@@ -254,7 +257,10 @@
                         reader.onload = function(e) {
                             previewImage.src = e.target.result;
                             previewImage.classList.remove('hidden');
-                            previewIcon.classList.add('hidden');
+                            previewImage.classList.add('block');
+
+                            previewFallback.classList.remove('flex');
+                            previewFallback.classList.add('hidden');
                         };
 
                         reader.readAsDataURL(file);

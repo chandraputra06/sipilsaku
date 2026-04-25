@@ -3,30 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ebook;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class AdminEbookController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $ebooks = Ebook::when($request->filled('search'), function ($query) use ($request) {
                 $query->where('title', 'like', '%' . $request->search . '%')
                     ->orWhere('author', 'like', '%' . $request->search . '%');
             })
             ->latest()
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         return view('pages.admin.ebooks.index', compact('ebooks'));
     }
 
-    public function create()
+    public function create(): View
     {
         return view('pages.admin.ebooks.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'title'       => ['required', 'string', 'max:255'],
@@ -48,15 +51,17 @@ class AdminEbookController extends Controller
 
         Ebook::create($validated);
 
-        return redirect()->route('admin.ebooks.index')->with('success', 'E-Book berhasil ditambahkan.');
+        return redirect()
+            ->route('admin.ebooks.index')
+            ->with('success', 'E-Book berhasil ditambahkan.');
     }
 
-    public function edit(Ebook $ebook)
+    public function edit(Ebook $ebook): View
     {
         return view('pages.admin.ebooks.edit', compact('ebook'));
     }
 
-    public function update(Request $request, Ebook $ebook)
+    public function update(Request $request, Ebook $ebook): RedirectResponse
     {
         $validated = $request->validate([
             'title'       => ['required', 'string', 'max:255'],
@@ -82,10 +87,12 @@ class AdminEbookController extends Controller
 
         $ebook->update($validated);
 
-        return redirect()->route('admin.ebooks.index')->with('success', 'E-Book berhasil diperbarui.');
+        return redirect()
+            ->route('admin.ebooks.index')
+            ->with('success', 'E-Book berhasil diperbarui.');
     }
 
-    public function destroy(Ebook $ebook)
+    public function destroy(Ebook $ebook): RedirectResponse
     {
         if ($ebook->cover && Storage::disk('public')->exists($ebook->cover)) {
             Storage::disk('public')->delete($ebook->cover);
@@ -93,6 +100,8 @@ class AdminEbookController extends Controller
 
         $ebook->delete();
 
-        return redirect()->route('admin.ebooks.index')->with('success', 'E-Book berhasil dihapus.');
+        return redirect()
+            ->route('admin.ebooks.index')
+            ->with('success', 'E-Book berhasil dihapus.');
     }
 }

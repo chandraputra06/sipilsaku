@@ -2,7 +2,7 @@
 
     {{-- Wave divider: jembatan orange (keunggulan) → hitam → cream (footer) --}}
     <div class="absolute -top-px left-0 w-full overflow-hidden leading-none">
-        
+
     </div>
 
     <div class="mx-auto max-w-[1180px] px-6 pb-10 pt-16 lg:px-8">
@@ -56,7 +56,7 @@
                     <li><a href="{{ url('/') }}"
                             class="text-sm text-[#6B5547] transition hover:text-[#D4904A]">Beranda</a></li>
                     <li><a href="{{ url('/courses') }}"
-                            class="text-sm text-[#6B5547] transition hover:text-[#D4904A]">Kursus</a></li>
+                            class="text-sm text-[#6B5547] transition hover:text-[#D4904A]">Vidio</a></li>
                     <li><a href="{{ url('/ebooks') }}"
                             class="text-sm text-[#6B5547] transition hover:text-[#D4904A]">E-Book</a></li>
                 </ul>
@@ -83,7 +83,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
-                        <span class="text-sm text-[#6B5547]">hello@civilians.id</span>
+                        <span class="text-sm text-[#6B5547]">sipilsaku@gmail.com</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <svg class="h-5 w-5 shrink-0 text-[#D4904A]" fill="none" viewBox="0 0 24 24"
@@ -91,7 +91,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                         </svg>
-                        <span class="text-sm text-[#6B5547]">+62 877-6263-5300</span>
+                        <span class="text-sm text-[#6B5547]">+62 819-1611-3700</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <svg class="h-5 w-5 shrink-0 text-[#D4904A]" fill="none" viewBox="0 0 24 24"
@@ -112,11 +112,8 @@
                             @csrf
                             <button type="submit"
                                 class="flex items-center gap-2 rounded-full bg-[#D4904A] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-[#c07e3e]">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
+                                <img src="{{ asset('assets/icon/icon-logout.png') }}" alt="Icon Login"
+                                    class="h-[18px] w-[18px] object-contain xl:h-[20px] xl:w-[20px]">
                                 Keluar
                             </button>
                         </form>
@@ -125,11 +122,8 @@
                         <div class="inline-flex items-center rounded-full bg-[#D4904A] p-[5px]">
                             {{-- Masuk --}}
                             <a href="{{ route('login') }}" class="flex items-center gap-2 pl-4 pr-5 py-2">
-                                <svg class="h-[18px] w-[18px] shrink-0 text-white" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                                </svg>
+                                <img src="{{ asset('assets/icon/icon-login.png') }}" alt="Icon Login"
+                                    class="h-[18px] w-[18px] object-contain xl:h-[20px] xl:w-[20px]">
                                 <span class="text-sm font-bold text-white">Masuk</span>
                             </a>
 

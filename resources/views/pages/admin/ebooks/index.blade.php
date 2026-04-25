@@ -1,4 +1,4 @@
-@extends('layouts.app-no-footer')
+@extends('layouts.admin')
 
 @section('content')
 <section class="bg-[#FCF5EE] py-10">
