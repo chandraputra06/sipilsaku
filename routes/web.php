@@ -104,15 +104,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         'destroy',
     ]);
 
-    Route::put('/users/{user}/course-orders/{courseOrder}', [UserController::class, 'updateCourseAccess'])
-        ->name('users.course-orders.update');
+Route::get('/faq', function () {
+    return view('pages.faq.index');
+})->name('faq');
 
-    Route::get('/courses/{course}/videos', [AdminCourseVideoController::class, 'index'])->name('courses.videos.index');
-    Route::get('/courses/{course}/videos/create', [AdminCourseVideoController::class, 'create'])->name('courses.videos.create');
-    Route::post('/courses/{course}/videos', [AdminCourseVideoController::class, 'store'])->name('courses.videos.store');
-    Route::get('/courses/videos/{video}/edit', [AdminCourseVideoController::class, 'edit'])->name('courses.videos.edit');
-    Route::put('/courses/videos/{video}', [AdminCourseVideoController::class, 'update'])->name('courses.videos.update');
-    Route::delete('/courses/videos/{video}', [AdminCourseVideoController::class, 'destroy'])->name('courses.videos.destroy');
-    Route::put('/users/{user}/course-orders/{courseOrder}', [UserController::class, 'updateCourseAccess'])
-    ->name('users.course-orders.update');
-});
+Route::get('/about', function () {
+    return view('pages.about.index');
+})->name('about');
