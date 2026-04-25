@@ -104,6 +104,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         'destroy',
     ]);
 
+    Route::put('/users/{user}/course-orders/{courseOrder}', [UserController::class, 'updateCourseAccess'])
+        ->name('users.course-orders.update');
+
     Route::get('/courses/{course}/videos', [AdminCourseVideoController::class, 'index'])->name('courses.videos.index');
     Route::get('/courses/{course}/videos/create', [AdminCourseVideoController::class, 'create'])->name('courses.videos.create');
     Route::post('/courses/{course}/videos', [AdminCourseVideoController::class, 'store'])->name('courses.videos.store');
