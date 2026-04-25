@@ -12,7 +12,7 @@
         <div class="absolute inset-0 bg-black/55"></div>
 
         {{-- Content --}}
-        <div
+        <div data-animate="fade-up" data-animate-duration="slow" data-animate-ease="smooth"
             class="relative mx-auto grid min-h-[580px] max-w-[1240px] grid-cols-1 items-stretch gap-8 px-6 py-16 lg:min-h-[640px] lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-20">
 
             {{-- ── Left ── --}}
@@ -67,14 +67,16 @@
                     {{-- Stats --}}
                     <div class="absolute bottom-[28px] left-1/2 flex -translate-x-1/2 items-center gap-8 xl:bottom-[34px]">
                         <div class="text-center">
-                            <p class="font-heading text-[32px] font-bold leading-none text-white xl:text-[36px]">2.4K+</p>
+                            <p class="font-heading text-[32px] font-bold leading-none text-white xl:text-[36px]">2.4K+
+                            </p>
                             <p class="mt-1.5 text-sm text-white/65">Member aktif</p>
                         </div>
 
                         <div class="h-12 w-px bg-white/35"></div>
 
                         <div class="text-center">
-                            <p class="font-heading text-[32px] font-bold leading-none text-white xl:text-[36px]">4.9/5</p>
+                            <p class="font-heading text-[32px] font-bold leading-none text-white xl:text-[36px]">4.9/5
+                            </p>
                             <p class="mt-1.5 text-sm text-white/65">Rating Terverivikasi</p>
                         </div>
                     </div>
@@ -86,22 +88,24 @@
 
     <section class="bg-white">
         <div class="mx-auto max-w-[1240px] px-6 py-12 lg:px-8">
-            <div class="grid grid-cols-2 divide-x divide-[#D9B387] md:grid-cols-4">
+            <div class="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0">
                 @foreach ([['num' => '2.406+', 'label' => 'Mahasiswa Aktif', 'icon' => 'icon-mhs.png'], ['num' => '5', 'label' => 'Mentor Expert', 'icon' => 'icon-mentor.png'], ['num' => '98%', 'label' => 'Tingkat Kepuasan', 'icon' => 'icon-kepuasan.png'], ['num' => '150+', 'label' => 'Alumni Berhasil', 'icon' => 'icon-alumni.png']] as $stat)
-                    <div class="relative flex min-h-[150px] flex-col items-center justify-center px-6 py-8 text-center">
+                    <div data-animate="soft" data-animate-delay="{{ $loop->index * 180 }}ms" data-animate-duration="slow"
+                        data-animate-ease="smooth"
+                        class="relative flex min-h-[150px] flex-col items-center justify-center px-4 py-6 text-center md:px-6 md:py-8 {{ $loop->index < 3 ? 'md:border-r md:border-[#D9B387]' : '' }}">
 
                         {{-- Background icon --}}
                         <img src="{{ asset('assets/icon/' . $stat['icon']) }}" alt="" aria-hidden="true"
-                            class="pointer-events-none absolute left-1/2 top-[44%] z-[1] h-[108px] w-[108px] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.88] sm:h-[118px] sm:w-[118px]">
+                            class="pointer-events-none absolute left-1/2 top-[44%] z-[1] h-[90px] w-[90px] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.88] sm:h-[100px] sm:w-[100px] sm:opacity-[0.38] md:h-[108px] md:w-[108px] md:opacity-[0.32] lg:h-[118px] lg:w-[118px] lg:opacity-[0.28]">
 
                         {{-- Number --}}
                         <span
-                            class="relative z-[2] font-heading text-[36px] font-extrabold leading-none text-[#111111] sm:text-[42px] lg:text-[48px]">
+                            class="relative z-[2] font-heading text-[32px] font-extrabold leading-none text-[#111111] sm:text-[38px] md:text-[42px] lg:text-[48px]">
                             {{ $stat['num'] }}
                         </span>
 
                         {{-- Label --}}
-                        <span class="relative z-[2] mt-3 text-sm font-medium text-[#2B2118]">
+                        <span class="relative z-[2] mt-3 text-[13px] font-medium leading-5 text-[#2B2118] sm:text-sm">
                             {{ $stat['label'] }}
                         </span>
                     </div>
@@ -115,7 +119,7 @@
         <div class="mx-auto max-w-[1240px] px-6 py-16 lg:px-8">
 
             {{-- Heading --}}
-            <div class="text-center">
+            <div data-animate="fade-up" data-animate-duration="slow" data-animate-ease="smooth" class="text-center">
                 <h2 class="font-heading text-[42px] font-bold text-[#C17F3A] md:text-[52px]">Pilihan Program</h2>
                 <p class="mx-auto mt-4 max-w-[560px] text-sm leading-7 text-[#6B5C4E] sm:text-[15px]">
                     Setiap paket dirancang khusus untuk membawa Anda dari pemahaman
@@ -148,7 +152,9 @@
                 'price' => 'Rp 399.000',
             ],
         ] as $course)
-                    <article class="flex h-full flex-col overflow-hidden rounded-[20px] border border-[#D9A066] shadow-sm">
+                    <article data-animate="fade-up" data-animate-delay="{{ $loop->index * 220 }}ms"
+                        data-animate-duration="slow" data-animate-ease="smooth"
+                        class="flex h-full flex-col overflow-hidden rounded-[20px] border border-[#D9A066] shadow-sm">
                         <div
                             class="relative flex min-h-[365px] flex-1 flex-col overflow-hidden bg-[#D4904A] px-6 pb-0 pt-6">
 
@@ -213,7 +219,8 @@
             </div>
 
             {{-- Button --}}
-            <div class="mt-10 text-center">
+            <div data-animate="fade-up" data-animate-delay="320ms" data-animate-duration="slow" data-animate-ease="smooth"
+                class="mt-10 text-center">
                 <a href="{{ url('/courses') }}"
                     class="inline-flex items-center gap-2 rounded-full bg-[#D4904A] px-12 py-4 text-sm font-semibold text-white shadow-lg shadow-[#D4904A]/30 transition hover:bg-[#c07e3e]">
                     Lihat Semua Kursus
@@ -228,33 +235,42 @@
 
     {{-- E-BOOK --}}
     <section class="bg-white">
-        <div class="mx-auto max-w-[1240px] px-6 py-16 lg:px-8">
-
+        <div class="mx-auto max-w-[1240px] px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
             {{-- Heading --}}
-            <div class="text-center">
-                <h2 class="font-heading text-[42px] font-bold text-[#C17F3A] md:text-[52px]">E-Book Populer</h2>
-                <p class="mx-auto mt-4 max-w-[520px] text-sm leading-7 text-[#6B5C4E] sm:text-[15px]">
+            <div data-animate="fade-up" data-animate-duration="slow" data-animate-ease="smooth" class="text-center">
+                <h2 class="font-heading text-[32px] font-bold leading-none text-[#C17F3A] sm:text-[42px] md:text-[52px]">
+                    E-Book Populer
+                </h2>
+                <p class="mx-auto mt-4 max-w-[620px] text-[14px] leading-7 text-[#6B5C4E] sm:text-[15px]">
                     Jelajahi koleksi literatur konstruksi digital yang disusun sesuai
                     dengan standar industri terkini.
                 </p>
             </div>
 
             {{-- Carousel wrapper --}}
-            <div class="mt-10 flex items-center gap-3 lg:gap-5">
+            <div data-animate="zoom-in" data-animate-duration="slow" data-animate-ease="smooth"
+                class="relative mx-auto mt-10 max-w-[980px] sm:mt-12">
 
                 {{-- Prev button --}}
                 <button id="ebookPrev"
-                    class="cursor-pointer flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#D4904A] hover:text-white">
+                    class="absolute left-[-2px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-1/2 hover:bg-[#D4904A] hover:text-white sm:left-[-12px] lg:left-[-18px]">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
+                {{-- Next button --}}
+                <button id="ebookNext"
+                    class="absolute right-[-2px] top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-1/2 hover:bg-[#D4904A] hover:text-white sm:right-[-12px] lg:right-[-18px]">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
                 {{-- Card --}}
                 <div
-                    class="relative min-w-0 flex-1 overflow-hidden rounded-[28px] border border-[#E8D8C8] bg-[#F5EDE3] shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
+                    class="overflow-hidden rounded-[24px] border border-[#E8D8C8] bg-[#F5EDE3] shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
                     <div class="ebook-track flex transition-transform duration-500 ease-in-out" id="ebookTrack">
-
                         @foreach ([
             [
                 'cover' => 'assets/image/book-baja.png',
@@ -275,63 +291,53 @@
                 'desc' => 'Memahami perilaku tanah sebagai material konstruksi, mulai dari klasifikasi, konsolidasi, hingga analisis stabilitas lereng dan daya dukung pondasi....',
             ],
         ] as $ebook)
-                            <div class="ebook-slide min-w-full px-7 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
-                                <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8">
+                            <div class="ebook-slide min-w-full px-5 py-7 sm:px-8 sm:py-9 lg:px-12 lg:py-12">
+                                <div class="flex flex-col items-center gap-6 sm:gap-7 md:flex-row md:items-start md:gap-8">
 
                                     {{-- Book cover --}}
                                     <div class="shrink-0">
                                         <img src="{{ asset($ebook['cover']) }}" alt="{{ $ebook['title'] }}"
-                                            class="h-[180px] w-auto rounded-[6px] object-contain shadow-lg shadow-black/15 sm:h-[220px] lg:h-[235px]">
+                                            class="h-[180px] w-auto rounded-[6px] object-contain shadow-lg shadow-black/15 sm:h-[210px] lg:h-[235px]">
                                     </div>
 
                                     {{-- Book info --}}
-                                    <div class="flex-1 min-w-0">
+                                    <div class="min-w-0 flex-1 text-left">
                                         <h3
                                             class="font-heading text-[24px] font-bold leading-tight text-[#111111] sm:text-[28px] lg:text-[32px]">
                                             {{ $ebook['title'] }}
                                         </h3>
+
                                         <div class="mt-3 h-px w-full bg-[#C4A882]"></div>
 
-                                        <p class="mt-3 text-sm font-medium text-[#4A3728]">
+                                        <p class="mt-3 text-[14px] font-medium leading-7 text-[#4A3728] sm:text-[15px]">
                                             Penulis: {{ $ebook['author'] }}
                                         </p>
 
-                                        <p class="mt-4 text-sm leading-7 text-[#5C4A38] lg:pr-4">
+                                        <p class="mt-4 text-[14px] leading-8 text-[#5C4A38] sm:text-[15px] lg:pr-4">
                                             {{ $ebook['desc'] }}
                                         </p>
                                     </div>
-
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                 </div>
-
-                {{-- Next button --}}
-                <button id="ebookNext"
-                    class="cursor-pointer flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#D4904A]/20 bg-[#F5EDE3] text-[#D4904A] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#D4904A] hover:text-white">
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-
             </div>
 
             {{-- Dots indicator --}}
             <div class="mt-5 flex justify-center gap-2" id="ebookDots"></div>
 
             {{-- CTA Button --}}
-            <div class="mt-8 text-center">
+            <div data-animate="fade-up" data-animate-delay="320ms" data-animate-duration="slow"
+                data-animate-ease="smooth" class="mt-8 text-center">
                 <a href="{{ url('/ebooks') }}"
-                    class="inline-flex items-center gap-2 rounded-full bg-[#D4904A] px-12 py-4 text-sm font-semibold text-white shadow-lg shadow-[#D4904A]/30 transition hover:bg-[#c07e3e]">
+                    class="inline-flex items-center gap-2 rounded-full bg-[#D4904A] px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#D4904A]/30 transition hover:bg-[#c07e3e] sm:px-12 sm:py-4">
                     Lihat Semua E-Book
                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
             </div>
-
         </div>
     </section>
 
@@ -351,7 +357,7 @@
         <div class="relative mx-auto max-w-[1240px] px-6 lg:px-8">
 
             {{-- Heading --}}
-            <div class="text-center">
+            <div data-animate="fade-up" data-animate-duration="slow" data-animate-ease="smooth" class="text-center">
                 <h2 class="font-heading text-[42px] font-bold text-white md:text-[52px]">Keunggulan</h2>
                 <p class="mt-4 text-lg font-bold text-black sm:text-[15px]">
                     Metode Praktis, Siap Terjun ke Industri.
@@ -364,11 +370,12 @@
         </div>
 
         {{-- Carousel (full width, overflow hidden) --}}
-        <div class="mt-10 overflow-hidden" id="keunggulanOuter">
+        <div data-animate="zoom-in" data-animate-duration="slow" data-animate-ease="smooth"
+            class="mt-10 overflow-hidden" id="keunggulanOuter">
             <div class="keunggulan-track flex gap-5 will-change-transform" id="keunggulanTrack">
 
                 {{-- Items x3 untuk loop mulus --}}
-                @foreach ([1, 2, 3] as $loop)
+                @foreach ([1, 2, 3] as $loopIndex)
                     @foreach ([['icon' => 'icon-paper.png', 'title' => 'Standar SNI', 'desc' => 'Materi up-to-date'], ['icon' => 'icon-target.png', 'title' => 'To-The-Point', 'desc' => 'Belajar lebih efisien'], ['icon' => 'icon-profile.png', 'title' => 'Bimbingan Mentor', 'desc' => 'Tanya jawab intensif'], ['icon' => 'icon-kasus.png', 'title' => 'Kasus Relatable', 'desc' => 'Studi kasus di Indonesia']] as $item)
                         <div
                             class="keunggulan-item flex w-[280px] shrink-0 items-center gap-4 rounded-2xl bg-[#FAF3EC] px-5 py-5 sm:w-[300px]">
@@ -389,7 +396,8 @@
         </div>
 
         {{-- CTA --}}
-        <div class="relative mt-10 text-center">
+        <div data-animate="fade-up" data-animate-delay="280ms" data-animate-duration="slow" data-animate-ease="smooth"
+            class="relative mt-10 text-center">
             <a href="{{ url('/courses') }}"
                 class="inline-flex items-center gap-2 rounded-full bg-white px-10 py-3.5 text-sm font-semibold text-[#2C1F12] shadow-md transition hover:bg-[#FAF3EC]">
                 Pilih Paket Kursus

@@ -1,18 +1,19 @@
-<section class="bg-[#DCC09B]">
-    <div class="mx-auto max-w-[1240px] px-6 py-8 lg:px-8">
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            @foreach ($ebooks as $book)
+<section class="bg-[#E7CCAA] py-12">
+    <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
+        <div class="grid grid-cols-2 gap-x-5 gap-y-6 sm:grid-cols-3 lg:grid-cols-4">
+            @forelse ($ebooks as $book)
                 @include('components.ebook.book-card', [
-                    'cover' => $book->cover,
-                    'title' => $book->title,
-                    'author' => $book->author,
-                    'price' => 'Rp. ' . number_format($book->price, 0, ',', '.'),
-                    'slug' => $book->slug,
+                    'book' => $book,
+                    'animateDelay' => (($loop->index % 8) * 120) . 'ms'
                 ])
-            @endforeach
+            @empty
+                <div class="col-span-full rounded-[12px] bg-white px-6 py-12 text-center text-sm text-[#8A7060]">
+                    E-Book tidak ditemukan.
+                </div>
+            @endforelse
         </div>
 
-        <div class="mt-8">
+        <div data-animate="fade-up" data-animate-delay="260ms" data-animate-duration="slow" data-animate-ease="smooth" class="mt-8">
             {{ $ebooks->links() }}
         </div>
     </div>

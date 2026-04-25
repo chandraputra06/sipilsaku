@@ -1,8 +1,8 @@
-<section class="bg-[#FCF5EE]">
-    <div class="mx-auto max-w-[1240px] px-6 py-10 lg:px-8">
-        <div class="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
-            <div>
-                <h2 class="font-heading text-[34px] leading-[1.05] text-[#C17F3A] sm:text-[40px]">
+<section class="bg-[#FAF6F2] py-12">
+    <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
+        <div class="grid items-start gap-8 lg:grid-cols-[240px_minmax(0,1fr)]">
+            <div data-animate="fade-right" data-animate-duration="slow" data-animate-ease="smooth">
+                <h2 class="font-heading text-[38px] leading-[1.05] text-[#D4904A] md:text-[46px]">
                     E-Book yang
                     <br>
                     banyak di
@@ -11,16 +11,18 @@
                 </h2>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                @foreach ($popularEbooks as $book)
+            <div data-animate="fade-left" data-animate-delay="140ms" data-animate-duration="slow" data-animate-ease="smooth"
+                class="grid grid-cols-2 gap-5 sm:grid-cols-3">
+                @forelse ($popularEbooks as $book)
                     @include('components.ebook.book-card', [
-                        'cover' => $book->cover,
-                        'title' => $book->title,
-                        'author' => $book->author,
-                        'price' => 'Rp. ' . number_format($book->price, 0, ',', '.'),
-                        'slug' => $book->slug,
+                        'book' => $book,
+                        'animateDelay' => (($loop->index % 6) * 140) . 'ms'
                     ])
-                @endforeach
+                @empty
+                    <div class="col-span-full rounded-[12px] bg-white px-6 py-10 text-center text-sm text-[#8A7060]">
+                        Belum ada e-book populer.
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
