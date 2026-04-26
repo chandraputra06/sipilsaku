@@ -484,13 +484,10 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/course-carousel.js')
+    @include('layouts.style.tailwind')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // =========================
-            // Modal course
-            // =========================
             const modal = document.getElementById('courseModal');
             const panel = document.getElementById('courseModalPanel');
             const openButtons = document.querySelectorAll('.open-course-modal');
