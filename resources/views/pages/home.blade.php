@@ -419,5 +419,5 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/ebook-carousel.js', 'resources/js/keunggulan-carousel.js'])
+    @include('layouts.styles.tailwind')
 @endpush
