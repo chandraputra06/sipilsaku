@@ -1,3 +1,7 @@
+import './ebook-carousel';
+import './keunggulan-carousel';
+import './course-carousel';
+
 document.addEventListener('DOMContentLoaded', () => {
 // Animate on scroll
 const animatedElements = document.querySelectorAll('[data-animate]');
