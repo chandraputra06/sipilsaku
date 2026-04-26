@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin') | Sipilsaku</title>
-    <link rel="icon" type="image/png" href="{{ asset('assets/logo/sipilsaku-logo.png') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" type="image/png" href="{{ asset('sipilsaku-logo.png') }}">
+    @include('layouts.style.tailwind')
 </head>
 <body class="overflow-x-hidden bg-[#FCF5EE] font-body text-[#4D371F]">
     <div class="min-h-screen lg:flex">
@@ -15,7 +15,7 @@
             <header class="sticky top-0 z-30 border-b border-[#E8DDD2] bg-[#FCF5EE]/95 backdrop-blur lg:hidden">
                 <div class="flex items-center justify-between px-4 py-4 sm:px-6">
                     <a href="{{ route('admin.dashboard') }}">
-                        <img src="{{ asset('assets/logo/sipilsaku-logo.png') }}" alt="Sipilsaku Logo"
+                        <img src="{{ asset('sipilsaku-logo.png') }}" alt="Sipilsaku Logo"
                             class="h-[34px] w-auto object-contain">
                     </a>
 

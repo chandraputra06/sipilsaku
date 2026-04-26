@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Sipilsaku' }}</title>
-    <link rel="icon" type="image/png" href="{{ asset('assets/logo/sipilsaku-logo.png') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/logo/sipilsaku-logo.png') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" type="image/png" href="{{ asset('sipilsaku-logo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('sipilsaku-logo.png') }}">
+    @include('layouts.style.tailwind')
 </head>
 <body class="bg-white font-body">
     <main class="min-h-screen bg-white flex items-center justify-center px-4 py-6 md:px-6 md:py-8">

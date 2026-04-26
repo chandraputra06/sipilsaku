@@ -2,7 +2,7 @@
     <div class="mx-auto flex h-[68px] max-w-[1240px] items-center justify-between px-4 sm:px-6 lg:h-[76px] lg:px-8">
         {{-- Logo --}}
         <a href="{{ route('home') }}" class="shrink-0">
-            <img src="{{ asset('assets/logo/sipilsaku-logo.png') }}" alt="Sipilsaku Logo"
+            <img src="{{ asset('sipilsaku-logo.png') }}" alt="Sipilsaku Logo"
                 class="h-[28px] w-auto object-contain sm:h-[34px] lg:h-[42px]">
         </a>
 

@@ -4,7 +4,7 @@
     <div id="adminSidebar"
         class="fixed left-0 top-0 z-50 flex h-screen w-[290px] -translate-x-full flex-col border-r border-[#E8DDD2] bg-white px-6 py-8 transition duration-300 lg:static lg:z-auto lg:h-screen lg:translate-x-0">
         <a href="{{ route('admin.dashboard') }}" class="shrink-0">
-            <img src="{{ asset('assets/logo/sipilsaku-logo.png') }}" alt="Sipilsaku Logo"
+            <img src="{{ asset('sipilsaku-logo.png') }}" alt="Sipilsaku Logo"
                 class="h-[38px] w-auto object-contain">
         </a>
 

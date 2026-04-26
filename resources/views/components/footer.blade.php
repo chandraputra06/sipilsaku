@@ -13,7 +13,7 @@
             {{-- Col 1: Brand --}}
             <div class="md:col-span-1">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('assets/logo/sipilsaku-logo.png') }}" alt="Sipilsaku"
+                    <img src="{{ asset('sipilsaku-logo.png') }}" alt="Sipilsaku"
                         class="h-[42px] w-auto object-contain">
                 </div>
 
