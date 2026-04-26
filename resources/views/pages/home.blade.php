@@ -419,5 +419,5 @@
 @endsection
 
 @push('scripts')
-    @include('layouts.styles.tailwind')
+    @include('layouts.style.tailwind')
 @endpush
